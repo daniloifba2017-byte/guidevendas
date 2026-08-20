@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morro Guide Oficial — Seu Código de Descontos em Morro de São Paulo</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c1f27;
+    --card:#112836;
+    --card2:#0f2330;
+    --accent:#0A988B;
+    --accent-light:#38b6a6;
+    --text:#ffffff;
+    --muted:#CAD6DE;
+    --gold:#F2C94C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Cabin',sans-serif;
+    background:linear-gradient(160deg,#0c1f27 0%,#08151b 100%);
+    color:var(--text);
+    line-height:1.5;
+  }
+  .container{max-width:720px;margin:0 auto;padding:0 20px;}
+  a{color:inherit;}
+
+  /* NAV */
+  .topbar{
+    padding:16px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .topbar .container{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.02em;}
+  .logo span{color:var(--accent-light);}
+  .topbar-price{
+    background:rgba(10,152,139,0.18);
+    color:var(--accent-light);
+    font-weight:700;
+    font-size:14px;
+    padding:6px 14px;
+    border-radius:999px;
+  }
+
+  /* HERO */
+  .hero{padding:48px 0 32px;text-align:left;}
+  .badge{
+    display:inline-block;
+    background:rgba(10,152,139,0.18);
+    color:var(--accent-light);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Unbounded',sans-serif;
+    font-weight:700;
+    font-size:32px;
+    line-height:1.22;
+    margin-bottom:16px;
+  }
+  h1 .hl{color:var(--accent-light);}
+  p.lead{
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.65;
+    margin-bottom:26px;
+  }
+  .highlight{color:#ffffff;font-weight:700;}
+
+  .cta-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    background:var(--accent);
+    color:#fff;
+    font-family:'Cabin',sans-serif;
+    font-weight:700;
+    font-size:17px;
+    padding:18px 20px;
+    border-radius:12px;
+    box-shadow:0 16px 40px rgba(10,152,139,0.35);
+    transition:background .15s, transform .1s;
+    border:none;
+    cursor:pointer;
+  }
+  .cta-btn:hover{background:var(--accent-light);}
+  .cta-btn:active{transform:scale(0.99);}
+  .cta-sub{
+    text-align:center;
+    color:rgba(255,255,255,0.45);
+    font-size:12.5px;
+    margin-top:10px;
+  }
+
+  .hero-img{
+    width:100%;
+    border-radius:16px;
+    margin:26px 0 30px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    overflow:hidden;
+    position:relative;
+    aspect-ratio:16/10;
+    background:linear-gradient(135deg,#0A988B33,#08151b);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,0.08);
+    color:rgba(255,255,255,0.35);
+    font-size:13px;
+    text-align:center;
+    padding:20px;
+  }
+
+  /* SECTION GENERIC */
+  section{padding:36px 0;border-top:1px solid rgba(255,255,255,0.06);}
+  h2{
+    font-family:'Unbounded',sans-serif;
+    font-weight:700;
+    font-size:23px;
+    line-height:1.3;
+    margin-bottom:18px;
+  }
+  h2 .hl{color:var(--accent-light);}
+  p.text{color:var(--muted);font-size:15.5px;line-height:1.7;margin-bottom:14px;}
+
+  /* PAIN LIST */
+  .pain-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    margin-bottom:16px;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.6;
+  }
+  .pain-item .ico{
+    flex-shrink:0;
+    width:24px;height:24px;
+    border-radius:50%;
+    background:rgba(255,110,110,0.15);
+    color:#ff8a8a;
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:700;
+  }
+
+  /* BENEFIT CARDS */
+  .benefit-grid{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+  .benefit-card{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    padding:20px;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .benefit-card .ico{
+    flex-shrink:0;
+    width:38px;height:38px;
+    border-radius:10px;
+    background:rgba(10,152,139,0.18);
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+  }
+  .benefit-card h3{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:600;margin-bottom:6px;}
+  .benefit-card p{color:var(--muted);font-size:14px;line-height:1.55;}
+
+  /* HOW IT WORKS */
+  .step{display:flex;gap:16px;margin-bottom:22px;align-items:flex-start;}
+  .step-num{
+    flex-shrink:0;
+    width:32px;height:32px;
+    border-radius:50%;
+    background:var(--accent);
+    color:#fff;
+    font-family:'Unbounded',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step h3{font-size:15.5px;font-weight:700;margin-bottom:4px;}
+  .step p{color:var(--muted);font-size:14.5px;line-height:1.6;}
+
+  /* VALUE STACK */
+  .stack-card{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:28px 24px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.35);
+  }
+  .stack-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px dashed rgba(255,255,255,0.1);
+    font-size:14.5px;
+  }
+  .stack-row:last-of-type{border-bottom:none;}
+  .stack-row .item{color:var(--muted);}
+  .stack-row .val{color:#fff;font-weight:600;}
+  .stack-total{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.12);
+  }
+  .stack-total .label{font-size:14px;color:var(--muted);}
+  .stack-total .old-price{
+    text-decoration:line-through;
+    color:rgba(255,255,255,0.35);
+    font-size:15px;
+    margin-right:8px;
+  }
+  .stack-total .new-price{
+    font-family:'Unbounded',sans-serif;
+    font-size:30px;
+    font-weight:800;
+    color:var(--gold);
+  }
+  .stack-total .per{color:var(--muted);font-size:13px;}
+
+  .urgency{
+    text-align:center;
+    color:#ffb3b3;
+    font-size:13px;
+    font-style:italic;
+    margin-top:14px;
+  }
+
+  /* TRUST */
+  .trust-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
+  }
+  .trust-chip{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    color:var(--muted);
+    font-size:12.5px;
+    padding:8px 14px;
+    border-radius:999px;
+  }
+
+  /* FAQ */
+  .faq-item{
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    padding:16px 0;
+  }
+  .faq-q{font-weight:700;font-size:15px;margin-bottom:8px;}
+  .faq-a{color:var(--muted);font-size:14.5px;line-height:1.6;}
+
+  /* FINAL CTA */
+  .final-cta{
+    text-align:center;
+    padding:40px 0 60px;
+  }
+  .final-cta h2{margin-bottom:12px;}
+  .final-cta p.text{margin-bottom:26px;}
+
+  footer{
+    padding:24px 0 40px;
+    text-align:center;
+    color:rgba(255,255,255,0.35);
+    font-size:12px;
+    line-height:1.6;
+  }
+
+  /* STICKY MOBILE BAR */
+  .sticky-bar{
+    position:fixed;
+    bottom:0;left:0;right:0;
+    background:rgba(12,31,39,0.96);
+    backdrop-filter:blur(8px);
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding:12px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    z-index:50;
+  }
+  .sticky-bar .price{
+    font-family:'Unbounded',sans-serif;
+    font-weight:800;
+    font-size:18px;
+    color:var(--gold);
+    white-space:nowrap;
+  }
+  .sticky-bar .cta-btn{padding:13px 18px;font-size:14.5px;margin:0;}
+  body{padding-bottom:78px;}
+
+  @media(min-width:600px){
+    h1{font-size:38px;}
+    .container{padding:0 24px;}
+  }
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1595862025524662');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1595862025524662&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="logo">Morro <span>Guide</span> Oficial</div>
+      <div class="topbar-price">R$ 29,99</div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <section class="hero" style="border-top:none;padding-top:36px;">
+      <span class="badge">Acesso imediato · Morro de São Paulo, Bahia</span>
+      <h1>Um código só seu com <span class="hl">descontos reais</span> em passeios, restaurantes e experiências no Morro.</h1>
+      <p class="lead">Chega de pagar preço de turista. Ao comprar o <span class="highlight">Morro Guide Oficial</span> você recebe, na hora, um código pessoal e intransferível que dá desconto em parceiros selecionados na ilha — passeio de lancha, bugre, tatuagem de lembrança, restaurantes e muito mais. Em uma única viagem, o código já se paga sozinho.</p>
+
+      <a href="#" id="ctaHero" class="cta-btn" target="_blank" rel="noopener">Quero meu código agora — R$ 29,99 →</a>
+      <p class="cta-sub">Pagamento 100% seguro · Acesso liberado na hora, direto no seu e-mail</p>
+
+      <div class="hero-img"><img src="hero-mockup.jpg" alt="Painel do Morro Guide mostrando R$950 em benefícios e passeios" style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;"></div>
+    </section>
+
+    <section>
+      <h2>Se você já foi (ou pesquisou sobre) Morro de São Paulo, provavelmente já passou por isso:</h2>
+      <div class="pain-item"><span class="ico">✕</span><span>Pagou o passeio de barco ou bugre pelo primeiro preço que alguém falou na rua — e descobriu depois que dava pra pagar bem menos.</span></div>
+      <div class="pain-item"><span class="ico">✕</span><span>Chegou sem saber qual restaurante realmente vale a pena e qual é armadilha de turista.</span></div>
+      <div class="pain-item"><span class="ico">✕</span><span>A taxa de entrada da ilha já subiu para <strong style="color:#fff">R$90</strong> em 2026 — e sem planejamento, o resto da viagem sai do controle do mesmo jeito.</span></div>
+    </section>
+
+    <section>
+      <h2>O que você recebe com o <span class="hl">Morro Guide Oficial</span></h2>
+      <p class="text">Não é só um guia de texto. É um código pessoal, gerado na hora da sua compra, que te dá acesso a descontos reais com parceiros que a gente negociou direto na ilha.</p>
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <div class="ico">🛥️</div>
+          <div><h3>Passeios com desconto</h3><p>Lancha, volta à ilha e outros passeios pelos parceiros oficiais, com preço menor do que o turista comum paga.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="ico">🏍️</div>
+          <div><h3>Bugre e quadriciclo</h3><p>Condição especial nos aluguéis para explorar as praias mais distantes sem depender de van lotada.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="ico">🍽️</div>
+          <div><h3>Onde comer sem errar</h3><p>Seleção de restaurantes testados — os que valem o preço — com desconto em alguns deles.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="ico">🎨</div>
+          <div><h3>Tatuagem de lembrança</h3><p>Parceria com estúdio local pra quem quer levar uma lembrança de verdade do Morro, com condição exclusiva.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="ico">🔑</div>
+          <div><h3>Código pessoal e único</h3><p>Gerado no momento da compra, vinculado a você — sem risco de mau uso, sem compartilhamento indevido.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Como funciona</h2>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><h3>Você compra o acesso</h3><p>R$29,99, pagamento único, direto pelo checkout seguro abaixo.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><h3>Recebe seu código na hora</h3><p>Um código pessoal é gerado automaticamente e enviado para o seu e-mail — sem espera.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><h3>Usa com os parceiros no Morro</h3><p>Apresenta o código nos passeios, aluguéis e restaurantes parceiros e já garante o desconto.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>O que isso valeria se você fosse atrás de cada coisa separada</h2>
+      <div class="stack-card">
+        <div class="stack-row"><span class="item">Desconto em passeio de lancha</span><span class="val">R$ 30 a 60</span></div>
+        <div class="stack-row"><span class="item">Desconto em bugre / quadriciclo</span><span class="val">R$ 20 a 40</span></div>
+        <div class="stack-row"><span class="item">Desconto em restaurantes parceiros</span><span class="val">R$ 15 a 30</span></div>
+        <div class="stack-row"><span class="item">Condição especial na tatuagem</span><span class="val">Variável</span></div>
+        <div class="stack-row"><span class="item">Guia com dicas testadas do Morro</span><span class="val">Incluso</span></div>
+        <div class="stack-total">
+          <span class="label">Hoje, por apenas:</span>
+          <span><span class="new-price">R$ 29,99</span></span>
+        </div>
+        <p class="urgency">Normalmente, os descontos de um único passeio já cobrem o valor do acesso.</p>
+        <a href="#" id="ctaStack" class="cta-btn" style="margin-top:20px;" target="_blank" rel="noopener">Quero garantir meu código agora →</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Perguntas frequentes</h2>
+      <div class="faq-item">
+        <div class="faq-q">Como recebo meu código depois de comprar?</div>
+        <div class="faq-a">Assim que o pagamento é aprovado, o código é gerado automaticamente e enviado para o e-mail usado na compra.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">O código funciona pra mais de uma pessoa?</div>
+        <div class="faq-a">O código é pessoal, vinculado à sua compra. Se você está viajando em grupo, cada pessoa pode adquirir o seu.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Os parceiros ficam em qualquer época do ano?</div>
+        <div class="faq-a">As parcerias são com negócios locais fixos no Morro de São Paulo, então funcionam durante o ano todo, sujeito à disponibilidade de cada parceiro.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">O pagamento é seguro?</div>
+        <div class="faq-a">Sim. O checkout é processado por uma plataforma de pagamentos homologada, com criptografia de dados.</div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Sua viagem ao Morro fica melhor com <span class="hl">um código só</span></h2>
+      <p class="text">Menos tempo pesquisando preço, mais tempo aproveitando a ilha.</p>
+      <a href="#" id="ctaFinal" class="cta-btn" target="_blank" rel="noopener">Quero meu código agora — R$ 29,99 →</a>
+    </section>
+
+  </div>
+
+  <footer>
+    Morro Guide Oficial — conteúdo e parcerias independentes, sem vínculo com a administração pública de Morro de São Paulo/BA.<br>
+    Dúvidas? Fale com a gente pelo WhatsApp.
+  </footer>
+
+  <div class="sticky-bar">
+    <span class="price">R$ 29,99</span>
+    <a href="#" id="ctaSticky" class="cta-btn" target="_blank" rel="noopener">Quero meu código →</a>
+  </div>
+
+<script>
+  // ===================================================================
+  // CONFIGURAÇÃO — troque pelo link real do checkout da Kiwify assim
+  // que o produto "Morro Guide Oficial" estiver cadastrado lá.
+  // ===================================================================
+  const CHECKOUT_URL = "https://pay.kiwify.com.br/j1Lc0hf";
+
+  document.querySelectorAll('#ctaHero, #ctaStack, #ctaFinal, #ctaSticky').forEach(function(btn){
+    btn.href = CHECKOUT_URL;
+    btn.addEventListener('click', function(){
+      if(typeof fbq === 'function'){
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Morro Guide Oficial',
+          value: 29.99,
+          currency: 'BRL'
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
